@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogly - {{tag.tag_name}} details</title>
+</head>
+<body>
+    <h1>{{tag.tag_name}}</h1>
+    <h3>Posts with tag #{{tag.tag_name}}</h3>
+    <ul>
+        {% for post in posts %}
+            <li><a href="/posts/{{post.id}}">{{post.title}}</li>
+        {% endfor %}
+    </ul>
+    <form action="/tags/{{tag.id}}/edit">
+        <button id="edit">Edit Tag</button>
+    </form>
+    <form action="/tags">
+        <button id="edit">Go Back</button>
+    </form>
+    <form action="/tags/{{tag.id}}/delete" method="POST">
+        <button id="delete">Delete Tag</button>
+    </form>
+</body>
+</html>

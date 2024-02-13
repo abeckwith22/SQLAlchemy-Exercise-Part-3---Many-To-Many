@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Create New User{% endblock %}
+{% block content %}
+<h1>Edit {{user.get_full_name()}} Profile</h1>
+<!-- This also assumes user doesn't create 2 of the same users -->
+<form action="/users/{{user.id}}/edit" method="POST">
+    <p><b>First name</b></p>
+    <input type="text" name="first_name" placeholder="{{user.first_name}}">
+    <p><b>Last name</b></p>
+    <input type="text" name="last_name" placeholder="{{user.last_name}}">
+    <p><b>Image URL</b></p>
+    <input type="text" name="image_url" placeholder="Image URL">
+    <button>Submit User</button>
+</form>
+<br>
+<form action="/">
+    <button>Go back</button>
+</form>
+{% endblock %}

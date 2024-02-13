@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{post.title}}{% endblock %}
+{% block content %}
+<h3>Title: {{post.title}}</h3>
+<p>Content: {{post.content}}</p>
+<p>Post created at: {{post.created_at}}</p>
+<form action="/posts/{{post.id}}/edit">
+    <button class="edit">Edit</button>
+</form>
+<form action="/posts/{{post.id}}/delete">
+    <button class="delete">Delete</button>
+</form>
+
+<!-- Want to now get the tags that are associated with the post -->
+<h1>Tags</h1>
+<ul>
+    {% for tag in tags %}
+        <li><a href="/tags/{{tag.id}}">{{tag.tag_name}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

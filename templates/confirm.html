@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogly - {% block title %}{% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+    <form action="/users/{{user.id}}/delete" method="POST">
+        <button>Yes</button>
+    </form>
+    <form action="/">
+        <button>No</button>
+    </form>
+</body>
+</html>

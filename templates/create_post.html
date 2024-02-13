@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogly - Create New Post</title>
+</head>
+<body>
+    <form action="/users/{{user.id}}/posts/new" method="POST">
+        <p><b>Title</b></p>
+        <input type="text" name="title" placeholder="Title">
+        <p><b>Content</b></p>
+        <input type="text" name="content" placeholder="Content">
+        <button>Submit New Post</button>
+        <h3>Tags</h3>
+        <!-- Tag checkboxes -->
+        {% for tag in tags %}
+        <li>
+            <input type="checkbox" id="{{tag.tag_name}}"name="tag_id" value="{{tag.id}}">
+            <label for="{{tag.tag_name}}">{{tag.tag_name}}</label>
+        </li>
+        {% endfor %}
+    </form>
+    <br>
+    <form action="/">
+        <button>Go back</button>
+    </form>
+</body>
+</html>

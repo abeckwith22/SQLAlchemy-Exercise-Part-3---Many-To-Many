@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}edit post{% endblock %}
+{% block content %}
+<h1>Edit {{post.title}}</h1>
+<!-- This also assumes user doesn't create 2 of the same users -->
+<form action="/posts/{{post.id}}/edit" method="POST">
+    <p><b>Title</b></p>
+    <input type="text" name="title" placeholder="{{post.title}}">
+    <p><b>Content</b></p>
+    <input type="text" name="content" placeholder="{{post.content}}">
+    <button>Submit Edited Post</button>
+    <h3>Tags</h3>
+    <!-- Tag checkboxes -->
+    {% for tag in tags %}
+    <li>
+        {% if tag.id in tag_ids %}
+            <input type="checkbox" id="{{tag.tag_name}}"name="tag_id" value="{{tag.id}}" checked>
+            <label for="{{tag.tag_name}}">{{tag.tag_name}}</label>
+        {% else %}
+            <input type="checkbox" id="{{tag.tag_name}}"name="tag_id" value="{{tag.id}}">
+            <label for="{{tag.tag_name}}">{{tag.tag_name}}</label>
+        {% endif %}
+    </li>
+    {% endfor %}
+</form>
+<br>
+<form action="/">
+    <button>Go back</button>
+</form>
+{% endblock %}
